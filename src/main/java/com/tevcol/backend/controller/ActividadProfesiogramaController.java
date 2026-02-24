@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/actividades")
@@ -21,6 +22,16 @@ public class ActividadProfesiogramaController {
     @GetMapping
     public ResponseEntity<List<ActividadProfesiograma>> listar() {
         return ResponseEntity.ok(actividadService.listarTodas());
+    }
+
+    // NUEVO MÉTODO PARA FILTRADO REAL POR PROFESIOGRAMA
+    @GetMapping("/profesiograma/{id}")
+    public ResponseEntity<List<ActividadProfesiograma>> buscarPorProfesiograma(@PathVariable Long id) {
+        // Filtramos en caliente para no complicar el Service si tienes poco tiempo
+        List<ActividadProfesiograma> filtradas = actividadService.listarTodas().stream()
+                .filter(a -> a.getCodigoProf() != null && a.getCodigoProf().equals(id))
+                .collect(Collectors.toList());
+        return ResponseEntity.ok(filtradas);
     }
 
     @GetMapping("/{id}")
