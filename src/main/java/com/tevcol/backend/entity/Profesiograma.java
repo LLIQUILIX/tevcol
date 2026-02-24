@@ -12,8 +12,8 @@ public class Profesiograma {
     @Column(name = "codigo_prof")
     private Long codigoProf;
 
-    @Column(name = "codigo_pro")
-    private Long codigoPro;
+    @Column(name = "codigo_car")
+    private Long codigoCar;
 
     @Column(name = "codigo_est")
     private Long codigoEst;
@@ -41,12 +41,12 @@ public class Profesiograma {
         this.codigoProf = codigoProf;
     }
 
-    public Long getCodigoPro() {
-        return codigoPro;
+    public Long getCodigoCar() {
+        return codigoCar;
     }
 
-    public void setCodigoPro(Long codigoPro) {
-        this.codigoPro = codigoPro;
+    public void setCodigoCar(Long codigoCar) {
+        this.codigoCar = codigoCar;
     }
 
     public Long getCodigoEst() {

@@ -12,9 +12,8 @@ public class ActividadProfesiograma {
     @Column(name = "codigo_actprof")
     private Long codigoActprof;
 
-    @ManyToOne
-    @JoinColumn(name = "codigo_prof", nullable = false)
-    private Profesiograma profesiograma;
+    @Column(name = "codigo_prof")
+    private Long codigoProf;
 
     @Column(name = "codigo_car")
     private Long codigoCar;
@@ -34,7 +33,13 @@ public class ActividadProfesiograma {
     @Column(name = "actualizacion_usu")
     private Long actualizacionUsu;
 
+    @Column(name = "tipo_act")
+    private String tipoAct;
 
+    @Column(name = "estado_act")
+    private Integer estadoAct;
+
+    // ===== GETTERS Y SETTERS =====
 
     public Long getCodigoActprof() {
         return codigoActprof;
@@ -44,12 +49,12 @@ public class ActividadProfesiograma {
         this.codigoActprof = codigoActprof;
     }
 
-    public Profesiograma getProfesiograma() {
-        return profesiograma;
+    public Long getCodigoProf() {
+        return codigoProf;
     }
 
-    public void setProfesiograma(Profesiograma profesiograma) {
-        this.profesiograma = profesiograma;
+    public void setCodigoProf(Long codigoProf) {
+        this.codigoProf = codigoProf;
     }
 
     public Long getCodigoCar() {
@@ -98,5 +103,21 @@ public class ActividadProfesiograma {
 
     public void setActualizacionUsu(Long actualizacionUsu) {
         this.actualizacionUsu = actualizacionUsu;
+    }
+
+    public String getTipoAct() {
+        return tipoAct;
+    }
+
+    public void setTipoAct(String tipoAct) {
+        this.tipoAct = tipoAct;
+    }
+
+    public Integer getEstadoAct() {
+        return estadoAct;
+    }
+
+    public void setEstadoAct(Integer estadoAct) {
+        this.estadoAct = estadoAct;
     }
 }
