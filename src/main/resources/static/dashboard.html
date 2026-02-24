@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tevcol - Dashboard Profesional</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f4f7f6; font-family: 'Segoe UI', sans-serif; }
+        .navbar { background: #1e3c72; shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .card { border-radius: 15px; border: none; transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .status-badge { border-radius: 20px; padding: 5px 15px; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-dark mb-4">
+    <div class="container">
+        <a class="navbar-brand" href="#"><b>TEVCOL</b> | Gestión de Salud</a>
+        <button class="btn btn-outline-light btn-sm" onclick="location.href='index.html'">Cerrar Sesión</button>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="card bg-white p-3 text-center">
+                <h6 class="text-muted">Total Profesiogramas</h6>
+                <h2 id="countTotal">24</h2>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-white p-3 text-center">
+                <h6 class="text-muted">Riesgos Altos</h6>
+                <h2 class="text-danger">8</h2>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-white p-3 text-center">
+                <h6 class="text-muted">Cumplimiento</h6>
+                <h2 class="text-success">92%</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h5 class="card-title mb-4">Registros Recientes</h5>
+            <table class="table table-borderless align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>Cargo</th>
+                        <th>Nivel de Riesgo</th>
+                        <th>Estado</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaDatos">
+                    <tr>
+                        <td>Ingeniero de Campo</td>
+                        <td><span class="badge bg-warning text-dark status-badge">Medio</span></td>
+                        <td><span class="badge bg-success status-badge">Activo</span></td>
+                        <td><button class="btn btn-sm btn-primary">Ver Detalle</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

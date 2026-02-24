@@ -26,14 +26,16 @@ public class SecurityConfig {
         this.jwtFilter = jwtFilter;
     }
 
+    
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
             .csrf(csrf -> csrf.disable())
-            .cors(cors -> cors.disable()) // Deshabilitamos CORS para evitar bloqueos en pruebas
+            .cors(cors -> cors.disable())
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/auth/**").permitAll() // Endpoints de login abiertos
-                .anyRequest().authenticated()           // Todo lo demás requiere el Token JWT
+                .requestMatchers("/auth/**").permitAll() 
+                .requestMatchers("/", "/index.html", "/dashboard.html", "/static/**", "/*.js", "/*.css").permitAll()
+                .anyRequest().authenticated()
             )
             .sessionManagement(session ->
                 session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -53,7 +55,7 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    // ESTO ES CLAVE: Usuario en memoria para que el Login funcione YA.
+    
     @Bean
     public UserDetailsService userDetailsService() {
         UserDetails user = User.builder()
